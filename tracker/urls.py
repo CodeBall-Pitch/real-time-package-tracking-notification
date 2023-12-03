@@ -6,5 +6,5 @@ app_name='tracker'
 
 urlpatterns=[
     path('',Homeview,name='home'),
-    path('package/<int:tracking_number>/',PackageDetailView, name='package')
+    path('package/<int:tracking_number>/',PackageDetailView, name='package'),
 ]

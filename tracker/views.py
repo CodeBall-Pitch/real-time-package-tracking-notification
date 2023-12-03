@@ -3,7 +3,8 @@ from .models import Package, Notification
 
 def Homeview(request):
     packages = Package.objects.all()
-    notifications = Notification.objects.filter(user=request.user, read=False)
+    notifications = Notification.objects.filter(user=request.user, read=True)
+    
     context = {
         'packages': packages,
         'notifications': notifications,
@@ -17,8 +18,8 @@ def PackageDetailView(request, tracking_number):
     }
     return render(request, 'detail.html', context)
 
-def MarkNotificationAsRead(request, notification_id):
+def MarkNotificationAsUnread(request, notification_id):
     notification = Notification.objects.get(id=notification_id)
-    notification.read = True
+    notification.read = False
     notification.save()
     return redirect('home')
