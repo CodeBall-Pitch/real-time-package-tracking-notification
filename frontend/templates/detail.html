@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Package Details</h2>
+
+<p><strong>Tracking Number:</strong> {{ package.tracking_number }}</p>
+<p><strong>Current Location:</strong> {{ package.current_location }}</p>
+<p><strong>Destination:</strong> {{ package.destination }}</p>
+<p><strong>Status:</strong> {{ package.get_status_display }}</p>
+
+<a href="{% url 'tracker:home' %}" class="btn btn-success">Back to Home</a>
+{% endblock content %}

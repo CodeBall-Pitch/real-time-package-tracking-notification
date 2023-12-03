@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Package, Notification
 
 def Homeview(request):
@@ -15,7 +15,7 @@ def PackageDetailView(request, tracking_number):
     context = {
         'package': package,
     }
-    return render(request, 'package_detail.html', context)
+    return render(request, 'detail.html', context)
 
 def MarkNotificationAsRead(request, notification_id):
     notification = Notification.objects.get(id=notification_id)
